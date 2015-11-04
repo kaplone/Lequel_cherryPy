@@ -1,0 +1,75 @@
+>>> for y in  t.find({"nom" : {'$regex': 'VERANCIAL'}}):
+...     y
+... 
+{u'fichier': False, u'extension': u'', u'nom': u'VERANCIAL', u'taille': 5, u'parents': [u'Satellite MAC 2010', u'KAWNEER'], u'date': datetime.datetime(2011, 1, 12, 9, 56, 53), u'_id': ObjectId('533d77ce6de0f96e6588eea2')}
+{u'fichier': False, u'extension': u'', u'nom': u'VERANCIAL installation', u'taille': 11, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON'], u'date': datetime.datetime(2011, 1, 26, 10, 7, 36), u'_id': ObjectId('533d77cf6de0f96e6588eed2')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2', u'taille': 1438301488, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'original'], u'date': datetime.datetime(2010, 11, 2, 9, 36, 11), u'_id': ObjectId('533d77cf6de0f96e6588ef2c')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2 -sans ata', u'taille': 1431745556, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'sans atta'], u'date': datetime.datetime(2010, 11, 2, 9, 33, 47), u'_id': ObjectId('533d77cf6de0f96e6588ef34')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V1', u'taille': 1439379760, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER'], u'date': datetime.datetime(2010, 10, 25, 14, 48, 8), u'_id': ObjectId('533d77cf6de0f96e6588ef35')}
+>>> for y in  t.find({"nom" : {'$regex': 'VERANCIAL'}}, {"fichier" : True}):
+...     y
+... 
+{u'fichier': False, u'_id': ObjectId('533d77ce6de0f96e6588eea2')}
+{u'fichier': False, u'_id': ObjectId('533d77cf6de0f96e6588eed2')}
+{u'fichier': True, u'_id': ObjectId('533d77cf6de0f96e6588ef2c')}
+{u'fichier': True, u'_id': ObjectId('533d77cf6de0f96e6588ef34')}
+{u'fichier': True, u'_id': ObjectId('533d77cf6de0f96e6588ef35')}
+>>> for y in  t.find({"nom" : {'$regex': 'VERANCIAL'}, "fichier" : True}):
+...     y
+... 
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2', u'taille': 1438301488, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'original'], u'date': datetime.datetime(2010, 11, 2, 9, 36, 11), u'_id': ObjectId('533d77cf6de0f96e6588ef2c')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2 -sans ata', u'taille': 1431745556, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'sans atta'], u'date': datetime.datetime(2010, 11, 2, 9, 33, 47), u'_id': ObjectId('533d77cf6de0f96e6588ef34')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V1', u'taille': 1439379760, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER'], u'date': datetime.datetime(2010, 10, 25, 14, 48, 8), u'_id': ObjectId('533d77cf6de0f96e6588ef35')}
+>>> 
+
+
+>>> for y in  t.find({"nom" : re.compile("VERANCIAL", re.IGNORECASE)}):
+...     y
+... 
+{u'fichier': False, u'extension': u'', u'nom': u'VERANCIAL', u'taille': 5, u'parents': [u'Satellite MAC 2010', u'KAWNEER'], u'date': datetime.datetime(2011, 1, 12, 9, 56, 53), u'_id': ObjectId('533d77ce6de0f96e6588eea2')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'Verancial fabrication RIORGES V1', u'taille': 784115544, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'FABRICATION RIORGES', u'MASTER'], u'date': datetime.datetime(2011, 1, 17, 16, 43, 26), u'_id': ObjectId('533d77cf6de0f96e6588eecf')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'Verancial fabrication RIORGES V2 FINAL', u'taille': 784213720, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'FABRICATION RIORGES', u'MASTER'], u'date': datetime.datetime(2011, 1, 26, 11, 51, 11), u'_id': ObjectId('533d77cf6de0f96e6588eed0')}
+{u'fichier': False, u'extension': u'', u'nom': u'VERANCIAL installation', u'taille': 11, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON'], u'date': datetime.datetime(2011, 1, 26, 10, 7, 36), u'_id': ObjectId('533d77cf6de0f96e6588eed2')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'installation verancial ok', u'taille': 12175221335L, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'VERANCIAL installation', u'capture', u'Capture Scratch', u'num'], u'date': datetime.datetime(2011, 1, 17, 16, 57, 58), u'_id': ObjectId('533d77cf6de0f96e6588eed7')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'installation verancial ok2', u'taille': 11462969927L, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'VERANCIAL installation', u'capture', u'Capture Scratch', u'num'], u'date': datetime.datetime(2011, 1, 17, 17, 2, 58), u'_id': ObjectId('533d77cf6de0f96e6588eed8')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'installation verancial', u'taille': 1986813968, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'VERANCIAL installation', u'capture', u'Capture Scratch', u'num'], u'date': datetime.datetime(2011, 1, 17, 17, 3, 49), u'_id': ObjectId('533d77cf6de0f96e6588eed9')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'Verancial installation V1 FINAL', u'taille': 795639924, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'VERANCIAL installation', u'MASTER'], u'date': datetime.datetime(2011, 1, 26, 12, 10, 22), u'_id': ObjectId('533d77cf6de0f96e6588eefc')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'Verancial installation V1', u'taille': 796302592, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'CLIP SALON', u'VERANCIAL installation', u'MASTER'], u'date': datetime.datetime(2011, 1, 25, 10, 38, 34), u'_id': ObjectId('533d77cf6de0f96e6588eefd')}
+{u'fichier': False, u'extension': u'', u'nom': u'Projet verancial', u'taille': 3, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'capture scratch', u'Capture Scratch'], u'date': datetime.datetime(2010, 10, 21, 10, 18, 38), u'_id': ObjectId('533d77cf6de0f96e6588ef09')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'verancial', u'taille': 12347967744L, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'capture scratch', u'Capture Scratch', u'Projet verancial'], u'date': datetime.datetime(2010, 10, 21, 10, 18, 38), u'_id': ObjectId('533d77cf6de0f96e6588ef0a')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'generique verancialTRAM SUP', u'taille': 199445510, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'HABILLAGE', u'EXPORT'], u'date': datetime.datetime(2010, 10, 29, 19, 21, 37), u'_id': ObjectId('533d77cf6de0f96e6588ef17')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'generique verancialTRAM SUPold', u'taille': 200555194, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'HABILLAGE', u'EXPORT'], u'date': datetime.datetime(2010, 10, 25, 10, 55, 26), u'_id': ObjectId('533d77cf6de0f96e6588ef18')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'logo de fin verancial TRAM SUP', u'taille': 52416555, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'HABILLAGE', u'EXPORT'], u'date': datetime.datetime(2010, 10, 25, 12, 37, 16), u'_id': ObjectId('533d77cf6de0f96e6588ef19')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2', u'taille': 1438301488, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'original'], u'date': datetime.datetime(2010, 11, 2, 9, 36, 11), u'_id': ObjectId('533d77cf6de0f96e6588ef2c')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V2 -sans ata', u'taille': 1431745556, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER', u'FINAL', u'sans atta'], u'date': datetime.datetime(2010, 11, 2, 9, 33, 47), u'_id': ObjectId('533d77cf6de0f96e6588ef34')}
+{u'fichier': True, u'extension': u'mov', u'nom': u'VERANCIAL V1', u'taille': 1439379760, u'parents': [u'Satellite MAC 2010', u'KAWNEER', u'VERANCIAL', u'TEMOIGNAGE CLIENT', u'MASTER'], u'date': datetime.datetime(2010, 10, 25, 14, 48, 8), u'_id': ObjectId('533d77cf6de0f96e6588ef35')}
+>>> for y in  t.find({"nom" : re.compile("VERANCIAL", re.IGNORECASE)}):
+
+>>> from datetime import date
+>>> date.today()
+datetime.date(2014, 4, 7)
+>>> from datetime import date as date_jour
+>>> date_jour.today()
+datetime.date(2014, 4, 7)
+>>> from pymongo import MongoClient
+>>> conn = MongoClient('localhost', 27017)
+>>> db = conn.test_rep_0
+>>> t = db.test10
+>>> t.find()[0]
+{u'fichier': False, u'extension': u'', u'scan': datetime.datetime(2014, 4, 7, 11, 9, 15, 93000), u'taille': 0, u'disque': u'1000-6000', u'parents': [u'1000-6000'], u'nom': u'$RECYCLE.BIN', u'date': datetime.datetime(2013, 6, 14, 10, 48, 55, 58000), u'_id': ObjectId('53426b3b6de0f96d7e1f81f7')}
+>>> t.find()[0]["scan"]
+datetime.datetime(2014, 4, 7, 11, 9, 15, 93000)
+>>> t.find()[0]["scan"].strftime("%Y")
+'2014'
+>>> t.find()[0]["scan"].strftime("%b")
+'Apr'
+>>> t.find()[0]["scan"].strftime("%m")
+'04'
+>>> t.find()[0]["scan"].strftime("%d/%m/%Y")
+'07/04/2014' 
+
+
+t.find()[0]["scan"].strftime("%Y")
+t.find()[0]["scan"].strftime("%m")
+t.find()[0]["scan"].strftime("%d")
+
